@@ -8,7 +8,6 @@ class Philosopher extends Thread {
   // Add our instance variables from command line arguments
   private int numCycles;
 
-  // TODO might not need thinkingTime
   // private int thinkingTime;
   private int eatCount;
   private int maxEatingTime;
