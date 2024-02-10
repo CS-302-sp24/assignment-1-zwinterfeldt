@@ -8,9 +8,9 @@ public class DiningPhilosophers {
     for (int i = 0; i < 5; ++i)
       chopsticks[i] = new Chopstick(i);
 
-    // Creare 5 new Philosophers
+    // Create 5 new Philosophers
     for (int i = 0; i < 5; ++i) {
-      philosophers[i] = new Philosopher(chopsticks[i], chopsticks[(i + 1) % 5], 12);
+      philosophers[i] = new Philosopher(chopsticks[i], chopsticks[(i + 1) % 5], 12, 12, 0, i);
       philosophers[i].start();
     }
 
