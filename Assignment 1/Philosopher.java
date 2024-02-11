@@ -80,19 +80,37 @@ class Philosopher extends Thread {
             }
             // Think for a time between 0 and 1000
             Thread.sleep(random.nextInt(1000)); // Think for a while
-            System.out.println("Philosopher " + this.id + " wants the left chopstick.");
-            // Grab the left chopstick first
-            synchronized (left) {
-              System.out.println("Philosopher " + this.id + " has the left chopstick.");
-              System.out.println("Philosopher " + this.id + " wants the right chopstick.");
-              synchronized (right) {
-                System.out.println("Philosopher " + this.id + " has the right chopstick.");
-                while (eatCount < maxEatingTime) {
-                  ++eatCount;
+            if(this.id % 2 != 0) {
+              System.out.println("Philosopher " + this.id + " wants the left chopstick.");
+              // Grab the left chopstick first
+              synchronized (left) {
+                System.out.println("Philosopher " + this.id + " has the left chopstick.");
+                System.out.println("Philosopher " + this.id + " wants the right chopstick.");
+                synchronized (right) {
+                  System.out.println("Philosopher " + this.id + " has the right chopstick.");
+                  while (eatCount < maxEatingTime) {
+                    ++eatCount;
+                  }
+                  System.out.println("Philosopher " + this.id + " has eaten for " + eatCount);
+                  // Reset the eat count
+                  this.eatCount = 0;
                 }
-                System.out.println("Philosopher " + this.id + " has eaten for " + eatCount);
-                // Reset the eat count
-                this.eatCount = 0;
+              }
+            }
+            else {
+              System.out.println("Philosopher" + this.id + "wants the right chopstick");
+              synchronized (left){
+                System.out.println("Philosopher" + this.id + "has the right chopstick");
+                System.out.println("Philosopher" + this.id + "wants the left chopstick");
+                synchronized (right){
+                  System.out.println("Philosopher" + this.id + "has the left chopstick");
+                  while (eatCount < maxEatingTime) {
+                    ++eatCount;
+                  }
+                  System.out.println("Philosopher " + this.id + " has eaten for " + eatCount);
+                  // Reset the eat count
+                  this.eatCount = 0;
+                }
               }
             }
           }
