@@ -8,3 +8,4 @@ The test cases I provided were:
    2 1 1 5 0 (resulting in deadlock)
    5 10 10 6 0 (not resulting in deadlock)
    
+   All of my files can be found in the 'Assignment_1' folder. *This includes the Java files, class files, and Trace.txt file with outputs.*
