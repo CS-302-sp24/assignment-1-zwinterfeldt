@@ -13,7 +13,7 @@ public class DiningPhilosophers {
 
     System.out.println(System.getProperty("user.dir"));
 
-    FileWriter fileWriter = new FileWriter("C:/Users/zwint//IdeaProjects/assignment-1-zwinterfeldt/test3.txt");
+    FileWriter fileWriter = new FileWriter("C:/Users/zwint/OneDrive/Documents/assignment-1-zwinterfeldt/Assignment_1/Trace.txt", true);
     PrintWriter printWriter = new PrintWriter(fileWriter);
 
     System.setOut(new PrintStream(new OutputStream() {
@@ -41,6 +41,8 @@ public class DiningPhilosophers {
       philosophers[i].join();
     }
 
+    printWriter.println();
+    printWriter.println("--------------------------------------------------------------------");
     printWriter.close();
     fileWriter.close();
 
